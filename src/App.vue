@@ -1,12 +1,23 @@
 <template>
   <div id="app">
+    <headers :showHide="SH"></headers>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Header from './components/Header.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      SH: false
+    }
+  },
+  components: {
+    'headers': Header
+  }
 }
 </script>
 
@@ -17,6 +28,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  padding-top: 47px;
+  max-width: 650px;
+  background: #fff;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 body {
     margin: 0;
@@ -24,5 +40,8 @@ body {
     font-size: 12px;
     font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
     position: relative;
+}
+* {
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
 }
 </style>

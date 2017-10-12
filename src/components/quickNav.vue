@@ -1,13 +1,13 @@
 <template>
   <ul class="quick-nav">
     <li>
-        <a href="/movie/nowintheater?loc_id=108288">影院热映</a>
+        <router-link to='/movie'>影院热映</router-link>
     </li>
         <li>
             <a href="/mine/">我的</a>
         </li>
     <li>
-        <a id="hot-topics" href="https://m.douban.com/time/?dt_time_source=douban-msite_shortcut">豆瓣时间</a>
+        <router-link to='/timer' id="hot-topics">豆瓣时间</router-link>
     </li>
     <li>
         <a href="https://www.douban.com/doubanapp/app?channel=card_home&amp;direct_dl=1">使用豆瓣App</a>

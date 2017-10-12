@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
@@ -10,8 +9,24 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: HelloWorld
+      name: 'Index',
+      component: resolve => {
+        require(['@/components/Index'], resolve)
+      }
+    },
+    {
+      path: '/timer',
+      name: 'Timer',
+      component: resolve => {
+        require(['@/components/Timer/timer'], resolve)
+      }
+    },
+    {
+      path: '/movie',
+      name: 'Movie',
+      component: resolve => {
+        require(['@/components/Movie/movie.vue'], resolve)
+      }
     }
   ]
 })
