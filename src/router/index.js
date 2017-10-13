@@ -27,6 +27,12 @@ export default new Router({
       component: resolve => {
         require(['@/components/Movie/movie.vue'], resolve)
       }
+    },
+    {
+      path: '/movie/nowintheater',
+      component: resolve => {
+        require(['@/components/Movie/nowintheater.vue'], resolve)
+      }
     }
   ]
 })

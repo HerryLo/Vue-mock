@@ -2,7 +2,8 @@
     <section id='recommend-feed'>
         <div>
             <div class='feed-section' v-bind:key='item.id' v-for='item in dataFlow'>
-                <a class="feed-item" v-bind:href="item.target.url" v-if="item.layout == '1'">
+                <!-- 模板1 -->
+                <a class="feed-item" v-bind:href="replaceLocation(item.target.url)" v-if="item.layout == '1'">
                     <div class="feed-content">
                         <div v-if="item.target.cover_url" class="cover" :style="{background:'url('+item.target.cover_url+') center center / cover no-repeat rgb(250, 250, 250)'}">
                             <div style="padding-top: 100%;"></div>
@@ -15,7 +16,8 @@
                     </div>
                     <span class="feed-label">{{item.theme?item.theme.name:''}}</span>
                 </a>
-                <a class="feed-item" v-bind:href="item.target.url" v-else-if="item.layout == '5'">
+                <!-- 模板2 -->
+                <a class="feed-item" v-bind:href="replaceLocation(item.target.url)" v-else-if="item.layout == '5'">
                     <div class="feed-content">
                         <div class='photos'>
                             <div class="main" :style="{position: 'relative', background: 'url('+item.target.cover_url+') center center / cover no-repeat rgb(250, 250, 250)'}">
@@ -51,7 +53,12 @@
 <script>
 export default {
   name: 'recommendFeed',
-  props: ['dataFlow']
+  props: ['dataFlow'],
+  methods: {
+    replaceLocation: function (loc) {
+      return loc.replace('https://www.douban.com', 'https://m.douban.com')
+    }
+  }
 }
 </script>
 <style>
@@ -194,5 +201,97 @@ section p, section h3 {
 }
 #recommend-feed .feed-content .photos .more-pic .count {
     width: 100%;
+}
+.TalionNav-secondary {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: #fff;
+}
+.TalionNav-secondary a.close-nav {
+    position: absolute;
+    top: 20px;
+    left: 18px;
+    color: #42bd56;
+    font-size: 16px;
+}
+.TalionNav-secondary form {
+    border-bottom: 1px solid #f3f3f3;
+    padding: 15px 18px 15px 60px;
+}
+.TalionNav-secondary ul {
+    padding-top: 25px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: flex;
+    justify-content: space-around;
+}
+.TalionNav-secondary .navBottom {
+    width: 100%;
+    border-bottom: 1px solid #f3f3f3;
+}
+.TalionNav-secondary li {
+    width: 33.33%;
+}
+.TalionNav-secondary li div {
+    float: left;
+    position: relative;
+    left: 50%;
+    top: 0;
+}
+.TalionNav-secondary li a {
+    display: block;
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    left: -50%;
+    top: 0;
+}
+.TalionNav-secondary li strong {
+    display: block;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+}
+.TalionNav-secondary li span {
+    display: block;
+    color: #999;
+    height: 17px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.TalionNav-secondary .navBottom .nav-item {
+    border-top: 1px solid #f3f3f3;
+    padding: 13px 0;
+}
+.TalionNav-secondary .navBottom .nav-item a:first-child {
+    border-right: 1px solid #e5e5e5;
+}
+.TalionNav-secondary .navBottom .nav-item a {
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+}
+.TalionNav-secondary .navBottom a {
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: #42bd56;
+}
+.TalionNav-secondary input[type=search] {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAABGdBT…B/WBsUDu2HQ0ND33Ou41KOTpsm51SVYEZHR3cN/5Pq/wfEdlFyq1lD2AAAAABJRU5ErkJggg==) no-repeat 50% #f3f3f3;
+    background-size: 17.33333px;
+    border-radius: 3px;
+    width: 100%;
+    height: 31px;
+    font-size: 14px;
 }
 </style>

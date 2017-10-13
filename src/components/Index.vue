@@ -65,5 +65,4 @@ a {
     margin: 0 18px;
     -webkit-text-size-adjust: 100%;
 }
-
 </style>

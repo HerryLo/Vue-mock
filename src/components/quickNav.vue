@@ -1,7 +1,7 @@
 <template>
   <ul class="quick-nav">
     <li>
-        <router-link to='/movie'>影院热映</router-link>
+        <router-link to='/movie/nowintheater'>影院热映</router-link>
     </li>
         <li>
             <a href="/mine/">我的</a>
