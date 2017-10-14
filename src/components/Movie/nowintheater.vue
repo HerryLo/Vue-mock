@@ -12,7 +12,14 @@
                 <h4></h4>
                 <h3>{{item.title}}</h3>
                 <p class="rank">
-                    <span class="rating-stars" data-rating="3.6"><span class="rating-star rating-star-small-full"></span><span class="rating-star rating-star-small-full"></span><span class="rating-star rating-star-small-full"></span><span class="rating-star rating-star-small-full"></span><span class="rating-star rating-star-small-gray"></span></span> <span>7.3</span>
+                    <span class="rating-stars" data-rating="3.6" v-if="item.rating.average">
+                        <span class="rating-star rating-star-small-full"></span>
+                        <span class="rating-star rating-star-small-full"></span>
+                        <span class="rating-star rating-star-small-full"></span>
+                        <span class="rating-star rating-star-small-full"></span>
+                        <span class="rating-star rating-star-small-gray"></span>
+                    </span>
+                    <span>{{item.rating.average?item.rating.average:'暂无评分'}}</span>
                 </p>
                 <p class="meta">宋阳/艾伦/马丽/沈腾/喜剧/奇幻/2017-09-30(中国大陆)</p>
                 <cite></cite>
