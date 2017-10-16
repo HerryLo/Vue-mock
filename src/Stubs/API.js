@@ -10,7 +10,7 @@ export const doubanTimerBanner = url + '/rexxar/api/v2/niffler/promos?for_mobile
 
 /* 豆瓣时间列表 */
 
-export const doubanTimerList = url + '/rexxar/api/v2/niffler/explore?start=0&count=20&for_mobile=1&ck=null'
+export const doubanTimerList = url + '/rexxar/api/v2/niffler/explore?start=0&count=20&for_mobile=2&ck=null'
 
 /* 豆瓣热映电影 */
 export const nowMovie = douban + '/v2/movie/in_theaters?city=上海'
