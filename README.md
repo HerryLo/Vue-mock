@@ -3,6 +3,17 @@
 > A Vue.js project
 
 ## Build Setup
+使用vue2官网脚手架够贱的项目目录，在这里是希望可以练习一下关于vue2的API，之前是使用react构建项目，而之所以尝试新框架，只是想看看两者的区别。react适合团队开发，它语法严谨，可以在框架基础上随意添加方法，但是需要辅助学习ES6、JSX语法，有一定的入门门槛。vue语法简单，官方文档堪称爸爸教儿子学习，只要跟着官方来，可以忙上上手开发。
+
+说明:
+
+>   使用的是豆瓣的接口，只是为了练习只用
+
+>   由于本人后端接口不是特别了解，所以直接使用的豆瓣接口
+
+>   本项目简单易懂，便于学习
+
+>   由于使用的是第三方接口，所以使用的是jsonp跨域
 
 ``` bash
 # install dependencies 安装依赖
@@ -13,16 +24,8 @@ npm run dev
 
 # build for production with minification 生成转移文件
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-# run unit tests
-npm run unit
-# run e2e tests
-npm run e2e
-# run all tests
-npm test
 ```
+
 可在dev分支中修改代码
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
