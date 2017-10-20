@@ -1,6 +1,6 @@
 <template>
 <div>
-  <headers :showHide="SH"></headers>
+  <headers></headers>
   <div id="app">
     <router-view></router-view>
   </div>
@@ -12,11 +12,6 @@ import Header from './components/Header.vue'
 
 export default {
   name: 'app',
-  data () {
-    return {
-      SH: false
-    }
-  },
   components: {
     'headers': Header
   }

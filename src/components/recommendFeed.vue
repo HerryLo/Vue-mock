@@ -3,7 +3,7 @@
         <div>
             <div class='feed-section' v-bind:key='item.id' v-for='item in dataFlow'>
                 <!-- 模板1 -->
-                <a class="feed-item" v-bind:href="replaceLocation(item.target.url)" v-if="item.layout == '1'">
+                <a class="feed-item" v-bind:href="item.target.url" v-if="item.layout == '1'">
                     <div class="feed-content">
                         <div v-if="item.target.cover_url" class="cover" :style="{background:'url('+item.target.cover_url+') center center / cover no-repeat rgb(250, 250, 250)'}">
                             <div style="padding-top: 100%;"></div>
@@ -17,7 +17,7 @@
                     <span class="feed-label">{{item.theme?item.theme.name:''}}</span>
                 </a>
                 <!-- 模板2 -->
-                <a class="feed-item" v-bind:href="replaceLocation(item.target.url)" v-else-if="item.layout == '5'">
+                <a class="feed-item" v-bind:href="item.target.url" v-else-if="item.layout == '5'">
                     <div class="feed-content">
                         <div class='photos'>
                             <div class="main" :style="{position: 'relative', background: 'url('+item.target.cover_url+') center center / cover no-repeat rgb(250, 250, 250)'}">

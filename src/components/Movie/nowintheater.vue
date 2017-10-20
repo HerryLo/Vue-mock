@@ -121,7 +121,6 @@ export default {
 .grid .item .rank {
     height: 16px;
     font-size: 12px;
-    padding-top: 3px;
     text-align: center;
 }
 .grid .item h4, .grid .item cite, .grid .item .meta {

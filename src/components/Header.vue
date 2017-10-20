@@ -17,11 +17,11 @@
                     <a href="/group" style="color: #2AB8CC;">{{name[3]}}</a>
                 </li>
                 </ul>
-                <span class=""></span>
+                <span class="" v-on:click="seachClick"></span>
             </nav>
         </div>
-        <div v-show="showHide" class="TalionNav-secondary">
-            <a class="close-nav" href="javascript:;">关闭</a>
+        <div v-if="searchPopUp" class="TalionNav-secondary" v-on:click="seachClick">
+            <a class="close-nav" href="javascript:;" >关闭</a>
             <form action="/search" method="GET"><div><input name="query" type="search"></div></form>
             <ul>
                 <li>
@@ -58,13 +58,23 @@
     </header>
 </template>
 <script>
+import { mapState } from 'vuex'
+
 export default {
+  computed: mapState([
+    'searchPopUp'
+  ]),
   data () {
     return {
       name: ['电影', '图书', '广播', '小组']
     }
   },
-  props: ['showHide']
+  methods: {
+    seachClick () {
+      console.log(this.$store.state)
+      return this.$store.dispatch('Update_Seachstate')
+    }
+  }
 }
 </script>
 <style>
