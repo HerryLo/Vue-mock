@@ -33,6 +33,13 @@ export default new Router({
       component: resolve => {
         require(['@/components/Movie/nowintheater.vue'], resolve)
       }
+    },
+    {
+      path: '/search',
+      component: resolve => {
+        require(['@/components/Search/search.vue'], resolve)
+      },
+      props: (route) => ({ query: route.query.query })
     }
   ]
 })

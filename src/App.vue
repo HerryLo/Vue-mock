@@ -1,17 +1,23 @@
 <template>
 <div>
   <headers></headers>
-  <div id="app">
-    <router-view></router-view>
+  <div id="app" v-show="!searchPopUp">
+    <transition>
+      <router-view></router-view>
+    </transition>
   </div>
 </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'app',
+  computed: mapState([
+    'searchPopUp'
+  ]),
   components: {
     'headers': Header
   }
