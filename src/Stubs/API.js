@@ -14,3 +14,6 @@ export const doubanTimerList = url + '/rexxar/api/v2/niffler/explore?start=0&cou
 
 /* 豆瓣热映电影 */
 export const nowMovie = douban + '/v2/movie/in_theaters?city=上海'
+
+/* 豆瓣搜索 */
+export const SearchUrl = url + '/search'
