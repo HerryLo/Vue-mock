@@ -1,25 +1,26 @@
 <template>
+<mt-loadmore :bottom-method="loadBottom" ref="loadmore" :bottom-all-loaded="allLoaded">
     <div class='nowMovice'>
       <h1>影院热映</h1>
       <section class='grid'>
-        <a :href="item.alt" class="item" v-for="item in dataMovie" :key="item.id">
+        <a :href="item.url" class="item" v-for="item in dataMovie" :key="item.id">
             <div class="cover">
                 <div class="wp ratio3_4">
-                    <img :src="item.images.large" :alt="item.title" data-x="2268" data-y="3174" class="img-show" style="width: 100%;">
+                    <img :src="item.cover.url" :alt="item.title" data-x="2268" data-y="3174" class="img-show" style="width: 100%;">
                 </div>
             </div>
             <div class="info">
                 <h4></h4>
                 <h3>{{item.title}}</h3>
                 <p class="rank">
-                    <span class="rating-stars" data-rating="3.6" v-if="item.rating.average">
+                    <span class="rating-stars" data-rating="3.6" v-if="item.rating">
                         <span class="rating-star rating-star-small-full"></span>
                         <span class="rating-star rating-star-small-full"></span>
                         <span class="rating-star rating-star-small-full"></span>
                         <span class="rating-star rating-star-small-full"></span>
                         <span class="rating-star rating-star-small-gray"></span>
                     </span>
-                    <span>{{item.rating.average?item.rating.average:'暂无评分'}}</span>
+                    <span>{{item.rating?item.rating.value:'暂无评分'}}</span>
                 </p>
                 <p class="meta">宋阳/艾伦/马丽/沈腾/喜剧/奇幻/2017-09-30(中国大陆)</p>
                 <cite></cite>
@@ -27,6 +28,7 @@
         </a>
       </section>
     </div>
+</mt-loadmore>
 </template>
 <script>
 import {nowMovie} from '@/Stubs/API'
@@ -34,17 +36,48 @@ import {nowMovie} from '@/Stubs/API'
 export default {
   data () {
     return {
-      dataMovie: []
+      dataMovie: [],
+      Numpage: 0,
+      totalState: true,
+      allLoaded: false
     }
   },
   mounted () {
-    this.$http.jsonp(nowMovie, {}, {
-      emulateJSON: true
-    }).then(res => {
-      this.dataMovie = res.data.subjects
-    }, res => {
-      console.log(res)
-    })
+    this.dataLoading()
+  },
+  methods: {
+    dataLoading () {
+      this.$http.jsonp(nowMovie, {
+        params: {
+          os: 'android',
+          for_mobile: 1,
+          callback: 'jsonp1',
+          start: Number(this.Numpage),
+          count: 18,
+          loc_id: 108288,
+          _: 1508815412676}
+      }, {
+        emulateJSON: true
+      }).then(res => {
+        let item = res.data.subject_collection_items
+        if (this.dataMovie.length > 17) {
+          for (let v of item) {
+            this.dataMovie.push(v)
+          }
+        } else {
+          this.dataMovie = item
+        }
+        if (res.data.total === res.data.start) {
+          this.allLoaded = true
+        }
+        this.Numpage += Number(item.length)
+      }, res => {
+        console.log(res)
+      })
+    },
+    loadBottom () {
+      this.dataLoading()
+    }
   }
 }
 </script>

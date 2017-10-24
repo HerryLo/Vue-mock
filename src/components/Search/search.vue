@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import {SearchUrl} from '../../Stubs/API'
+// import {SearchUrl} from '../../Stubs/API'
 
 export default {
   props: ['query'],
@@ -23,17 +23,17 @@ export default {
     }
   },
   mounted () {
-    this.$http.jsonp(SearchUrl, {
-      params: {query: this.query}
-    }, {
-      emulateJSON: true
-    }).then(response => {
-      console.log(response.data)
-//      this.dataList = response.data.recommend_feeds
-//      document.write(response.data)
-    }, response => {
-      console.log('error')
-    })
+//     this.$http.jsonp(SearchUrl, {
+//       params: {query: this.query}
+//     }, {
+//       emulateJSON: true
+//     }).then(response => {
+//       console.log(response.data)
+//       this.dataList = response.data.recommend_feeds
+//       document.write(response.data)
+//     }, response => {
+//       console.log('error')
+//     })
   }
 }
 </script>

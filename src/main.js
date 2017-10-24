@@ -4,11 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueResource from 'vue-resource'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
 import store from './store/index'
+import { Swipe, SwipeItem, Loadmore } from 'mint-ui'
 
-Vue.use(ElementUI)
+Vue.component(Loadmore.name, Loadmore)
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
 Vue.use(VueResource)
 Vue.config.productionTip = false
 

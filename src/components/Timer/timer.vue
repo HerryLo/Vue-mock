@@ -1,10 +1,10 @@
 <template>
 <div class='page'>
-  <el-carousel :interval="5000" arrow='always' height='160px'>
-    <el-carousel-item v-for="item in banner" :key="item.id">
-      <a :href="item.uri"><img :src="item.image_url" alt="图片"></a>
-    </el-carousel-item>
-  </el-carousel>
+  <mt-swipe :auto="4000">
+    <mt-swipe-item v-for="item in banner" :key="item.id">
+      <a :href="item.uri"><img :src="item.image_url" alt="图片"/></a>
+    </mt-swipe-item>
+  </mt-swipe>
   <div id="scrollListView">
     <div>
       <section class="_2AxnX" v-for="item in list" :key="item.id">
@@ -67,26 +67,23 @@ export default {
 .page {
     background-color: #f7f7f7;
 }
-.el-carousel .el-carousel__button{
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+.mint-swipe {
+  height: 180px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
 }
-.el-carousel{
-  margin-bottom: 15px;
+.mint-swipe-item {
+  line-height: 180px;
 }
-.el-carousel__item img {
-  color: #475669;
-  height:100%;
+.mint-swipe-item img{
   width:100%;
-  margin: 0;
 }
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
+.mint-swipe-indicators {
+  bottom: 25px;
 }
-
-.el-carousel__item:nth-child(2n+1) {
-  background-color: #d3dce6;
+.mint-swipe-indicator {
+  opacity:0.6;
 }
 ._2AxnX {
     margin-bottom: 15px;
