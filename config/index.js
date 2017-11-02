@@ -39,6 +39,10 @@ module.exports = {
       '*': {
         target: 'https://m.douban.com',
         changeOrigin: true
+      },
+      '/view/photo/': {
+        target: 'https://img3.doubanio.com',
+        changeOrigin: true
       }
     },
     proxypath: 'https://m.douban.com/',
