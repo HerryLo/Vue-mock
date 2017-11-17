@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "awesome-typescript-loader": "^3.3.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.1",
@@ -80,6 +81,7 @@
     "shelljs": "^0.7.6",
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
+    "ts-loader": "^3.1.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.0.4",
     "vue-style-loader": "^3.0.1",
