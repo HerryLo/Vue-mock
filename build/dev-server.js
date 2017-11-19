@@ -99,6 +99,9 @@ devMiddleware.waitUntilValid(() => {
   })
 })
 
+var mockData = require('../util/mock')
+app.use('/', mockData)
+
 module.exports = {
   ready: readyPromise,
   close: () => {

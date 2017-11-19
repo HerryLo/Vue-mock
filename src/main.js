@@ -6,13 +6,11 @@ import router from './router/index'
 import VueResource from 'vue-resource'
 import store from './store/index'
 import { Swipe, SwipeItem, Loadmore } from 'mint-ui'
-import d from '../util/mock'
 
 Vue.component(Loadmore.name, Loadmore)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 Vue.use(VueResource)
-Vue.use(d)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

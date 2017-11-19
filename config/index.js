@@ -39,13 +39,8 @@ module.exports = {
       '*': {
         target: 'https://m.douban.com',
         changeOrigin: true
-      },
-      '/view/photo/': {
-        target: 'https://img3.doubanio.com',
-        changeOrigin: true
       }
     },
-    proxypath: 'https://m.douban.com/',
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

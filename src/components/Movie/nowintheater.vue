@@ -1,6 +1,7 @@
 <template>
     <div class='nowMovice'>
       <h1>影院热映</h1>
+      <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
       <section class='grid'>
         <a :href="item.alt" class="item" v-for="item in dataMovie" :key="item.id">
             <div class="cover">
@@ -26,6 +27,7 @@
             </div>
         </a>
       </section>
+      </mt-loadmore>
     </div>
 </template>
 <script>
@@ -37,26 +39,42 @@ export default {
       dataMovie: [],
       Numpage: 0,
       totalState: true,
-      allLoaded: false
+      allLoaded: false,
+      pn: 0,
+      total: 0
     }
   },
   mounted () {
     this.dataLoading()
   },
   methods: {
-    dataLoading () {
+    dataLoading (pn) {
       this.$http.jsonp(nowMovie, {
         params: {
-          city: '上海'
+          city: '上海',
+          start: this.pn
         }
       }, {
         emulateJSON: true
       }).then(res => {
+        if (this.pn > this.total) {
+          this.allLoaded = true
+          return false
+        }
         let item = res.data.subjects
-        this.dataMovie = item
+        this.total = res.data.total
+        if (this.dataMovie.length > 1) {
+          this.dataMovie = this.dataMovie.concat(item)
+        } else {
+          this.dataMovie = item
+        }
       }, res => {
         console.log(res)
       })
+    },
+    loadBottom () {
+      this.pn = Number(this.pn) + 20
+      this.dataLoading()
     }
   }
 }
