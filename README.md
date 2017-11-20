@@ -19,12 +19,13 @@
 # install dependencies 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080 本地测试
+# serve with hot reload at localhost:9898 本地测试
 npm run dev
 
 # build for production with minification 生成转移文件
 npm run build
 ```
+**部分接口使用mockjs数据,开启此项目时，需同时开启[node+express+mongidb+mockjs](https://github.com/HerryLo/MongoDB_express)**
 
 可在dev分支中修改
 
