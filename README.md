@@ -16,7 +16,7 @@
 >   由于使用的是第三方接口，所以使用的是jsonp跨域
 
 ``` bash
-$ git clone https://github.com/HerryLo/Vue-touban-learn
+$ git clone https://github.com/HerryLo/Vue-touban-learn.git
 
 # install dependencies 安装依赖
 $ npm install
