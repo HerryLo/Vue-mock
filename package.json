@@ -12,11 +12,7 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "del": "rimraf output && rimraf dist",
-    "pro:client": "cross-env NODE_ENV=production webpack --config ./build/webpack.client.config.js --progress --hide-modules",
-    "pro:server": "cross-env NODE_ENV=production webpack --config ./build/webpack.server.config.js --progress --hide-modules",
-    "pro": "npm run del && npm run pro:client && npm run pro:server && npm run cp",
-    "server": "cross-env NODE_ENV=production node server"
+    "del": "rimraf output && rimraf dist"
   },
   "dependencies": {
     "better-scroll": "^1.4.2",
@@ -89,7 +85,6 @@
     "shelljs": "^0.7.6",
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
-    "sw-precache-webpack-plugin": "^0.11.5",
     "ts-loader": "^3.1.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.0.4",
