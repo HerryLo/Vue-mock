@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style='height: 100%;'>
   <headers></headers>
   <div id="app" v-show="!searchPopUp">
     <transition>
@@ -12,6 +12,7 @@
 <script>
 import Header from './components/Header.vue'
 import { mapState } from 'vuex'
+import './style/common.css'
 
 export default {
   name: 'app',

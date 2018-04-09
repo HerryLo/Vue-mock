@@ -1,27 +1,22 @@
 <template>
-  <div>
     <div class="card">
       <section id="movie_showing">
+        <ul class="movieList">
+          <li class="item" v-for="item in list.subject_collection_items" :key="item.id">
+            <div class="item-poster" :style="{backgroundImage: 'url('+ item.cover.url +')'}"></div>
+          </li>
+        </ul>
       </section>
     </div>
-    <mt-swipe :show-indicators="false" :auto="0">
-      <mt-swipe-item  v-for="item in D.m1" :key="item.id">
-        <img :src="item.img" />
-        {{item.id}}
-      </mt-swipe-item>
-    </mt-swipe>
-  </div>
 </template>
 <script>
-import {Movie, MovieLocal} from '../../Stubs/API'
+import {Movie} from '../../Stubs/API'
 
 export default {
   name: 'Movie',
   data () {
     return {
-      D: { 'm1': [
-        { id: 10, img: 'http://dummyimage.com/271x381/8bf279/FFF&text=seybm', name: 'Laura Wilson' }]
-      }
+      list: []
     }
   },
   mounted () {
@@ -37,13 +32,7 @@ export default {
     }, {
       emulateJSON: true
     }).then(response => {
-    }, response => {
-      console.log('error')
-    })
-
-    this.$http.get(MovieLocal).then(response => {
-      this.D = response.data
-      console.log(this.D)
+      this.list = response.body
     }, response => {
       console.log('error')
     })
@@ -51,28 +40,31 @@ export default {
 }
 </script>
 <style>
-.mint-swipe {
-  height: 180px;
-  color: #fff;
-  font-size: 30px;
-  text-align: center;
+section {
+    margin: 0;
+    overflow: hidden;
+    background-color: #fff;
 }
-.mint-swipe-item {
-  width: 8rem!important;
+.movieList{
+    font-size: 0;
+    white-space: nowrap;
+    overflow-x: auto;
 }
-.mint-swipe-items-wrap{
-  display:flex;
+.item{
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    text-align: center;
 }
-.mint-swipe-item {
-  line-height: 180px;
+.item-poster {
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
-.mint-swipe-item img{
-  height: 100%;
-}
-.mint-swipe-indicators {
-  bottom: 25px;
-}
-.mint-swipe-indicator {
-  opacity:0.6;
+.item-poster:before {
+    content: "";
+    float: left;
+    margin-top: 142.85714%;
 }
 </style>

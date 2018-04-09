@@ -29,18 +29,25 @@ module.exports = {
     env: require('./dev.env'),
     port: process.env.PORT || 9898,
     autoOpenBrowser: true,
+    compress: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
+    host: "0.0.0.0",
+    https: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
     proxy: {
       '*': {
-        target: 'https://m.douban.com',
+        target: 'https://m.douban.com/',
         changeOrigin: true
       }
     },
+    allowedHosts: [
+      'm.douban.com',
+      'img3.doubanio.com'
+    ],
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
