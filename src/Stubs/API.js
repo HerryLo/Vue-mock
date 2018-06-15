@@ -22,8 +22,8 @@ export const nowMovie = douban + '/v2/movie/in_theaters'
 export const SearchUrl = url + '/search'
 
 /* 电影 */
-export const Movie = (params) => {
-  return `${url}/rexxar/api/v2/subject_collection/movie_${params}/items`
-}
+// export const Movie = (params) => {
+//   return `${url}/rexxar/api/v2/subject_collection/movie_${params}/items`
+// }
 /* 本地测试电影 */
 // export const MovieLocal = `${localhost}/api/movie`

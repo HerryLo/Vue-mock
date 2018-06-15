@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-import {Movie} from '../../Stubs/API'
+// import {Movie} from '../../Stubs/API'
 
 export default {
   name: 'Movie',
@@ -20,22 +20,22 @@ export default {
     }
   },
   mounted () {
-    this.$http.jsonp(Movie('showing'), {
-      params: {
-        os: 'ios',
-        callback: 'jsonp1',
-        start: 0,
-        count: 8,
-        loc_id: 108288,
-        _: 0
-      }
-    }, {
-      emulateJSON: true
-    }).then(response => {
-      this.list = response.body
-    }, response => {
-      console.log('error')
-    })
+    // this.$http.jsonp(Movie('showing'), {
+    //   params: {
+    //     os: 'ios',
+    //     callback: 'jsonp1',
+    //     start: 0,
+    //     count: 8,
+    //     loc_id: 108288,
+    //     _: 0
+    //   }
+    // }, {
+    //   emulateJSON: true
+    // }).then(response => {
+    //   this.list = response.body
+    // }, response => {
+    //   console.log('error')
+    // })
   }
 }
 </script>
@@ -49,12 +49,17 @@ section {
     font-size: 0;
     white-space: nowrap;
     overflow-x: auto;
+    padding: 15px 0 43px 0;
 }
 .item{
     display: inline-block;
     vertical-align: top;
     width: 100px;
     text-align: center;
+    margin-left: 0.48rem;
+}
+.item:first-child {
+    margin-left: 1.12rem;
 }
 .item-poster {
     width: 100%;
