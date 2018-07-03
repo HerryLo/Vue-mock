@@ -27,9 +27,7 @@ $ npm run dev
 # build for production with minification 生成转移文件
 $ npm run build
 ```
-**部分接口使用mockjs数据,开启此项目时，需同时开启[node+express+mongidb+mockjs](https://github.com/HerryLo/MongoDB_express)** 项目
-
-可在dev分支中修改
+-- 部分接口使用mockjs数据,开启此项目时，需同时开启[node+express+mongidb+mockjs](https://github.com/HerryLo/MongoDB_express) 项目 --
 
 
 
